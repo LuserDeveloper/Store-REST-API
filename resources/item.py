@@ -48,9 +48,9 @@ class Item(Resource):
 
         if item:
             item.delete_from_db()
-            return {"message" : f"Store {name} Deleted"}, 200            
+            return {"message" : f"Item {name} Deleted"}, 200            
 
-        return {"message" : f"Store {name} Not Found"}, 404
+        return {"message" : f"Item {name} Not Found"}, 404
 
     @jwt_required()
     def put(self, name):
