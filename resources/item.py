@@ -62,6 +62,7 @@ class Item(Resource):
             item = ItemModel(name,data['price'],data['store_id'])
         else:
             item.price = data['price']
+            item.store_id = data['store_id']
 
         item.save_to_db()
 
@@ -72,4 +73,4 @@ class ItemList(Resource):
 
     @jwt_required()
     def get(self):
-        return {"items" : [item.json() for item in ItemModel.query.all()]}, 200
+        return {"items" : [item.json() for item in ItemModel.find_all()]}, 200
